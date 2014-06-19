@@ -253,7 +253,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       extra += " *= require Buttons/scss/buttons.scss\n";
     }
     if (this.includeAnimateCss) {
-      extra += " *= require animate-sass/animate.scss\n";
+      extra += " *= require animate-sass/_animate.scss\n";
     }
     var path   = 'app/assets/stylesheets/application.css',
         hook   = ' *= require_tree .\n',

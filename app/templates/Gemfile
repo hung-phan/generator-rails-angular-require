@@ -15,4 +15,6 @@ group :development do
   gem 'guard-livereload', require: false
 end<% } %><% if (includeHaml) { %>
 # haml template
-gem 'haml'<% } %>
+gem 'haml'<% } %><% if (includeButtonCss) { %>
+# button sass
+gem 'compass-rails'<% } %>
