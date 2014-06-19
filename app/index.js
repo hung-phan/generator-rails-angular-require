@@ -55,11 +55,11 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function (props) {
-      function includeCSS(css) { return props.cssFile.indexOf(css) !== -1; }
+      function includeTemplate(css) { return props.cssFile.indexOf(css) !== -1; }
 
       // template support
-      this.includeHaml = includeCSS('includeHaml');
-      this.includeSlim = includeCSS('includeSlim');
+      this.includeHaml = includeTemplate('includeHaml');
+      this.includeSlim = includeTemplate('includeSlim');
 
       cb();
     }.bind(this));
@@ -98,6 +98,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
     this.template('config/angular_template_assets.rb', 'config/initializers/angular_template_assets.rb');
+    this.copy('jasmine_rails/spec_helper.rb', 'lib/jasmine_rails/spec_helper.rb');
   }
 });
 
