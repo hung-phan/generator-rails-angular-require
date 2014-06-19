@@ -115,10 +115,14 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
+  processingTemplate: function() {
+    this.template('Gemfile', 'tmp/yeoman/Gemfile');
+    this.template('Bowerfile', 'tmp/yeoman/Bowerfile');
+  },
+
   gemfile: function() {
     //process Gemfile
     console.log('Processing Gemfile');
-    this.template('Gemfile', 'tmp/yeoman/Gemfile');
     var path   = 'tmp/yeoman/Gemfile',
         dest   = 'Gemfile',
         file   = this.readFileAsString(dest),
@@ -140,7 +144,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     //process bower
     console.log('Processing Bowerfile');
     this.spawnCommand('rails', ['generate', 'bower_rails:initialize']);
-    this.template('Bowerfile', 'tmp/yeoman/Bowerfile');
     var path   = 'tmp/yeoman/Bowerfile',
         dest   = 'Bowerfile',
         file   = this.readFileAsString(dest),
@@ -149,6 +152,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     if (file.indexOf(insert) === -1) {
       this.write(dest, file + insert);
     }
+    this.spawnCommand('rake', ['bower:install']);
   },
 
   templateSupport: function() {
