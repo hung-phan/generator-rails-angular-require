@@ -46,7 +46,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
     var prompts = [{
       type: 'checkbox',
-      name: 'rbFile',
+      name: 'htmlFile',
       message: 'What template support would you like to include?',
       choices: [
         { name: 'HAML' , value: 'includeHaml' , checked: true },
@@ -55,7 +55,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function (props) {
-      function includeTemplate(template) { return props.rbFile.indexOf(template) !== -1; }
+      function includeTemplate(template) { return props.htmlFile.indexOf(template) !== -1; }
 
       // template support
       this.includeHaml = includeTemplate('includeHaml');
@@ -102,6 +102,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     this.copy('jasmine_rails/spec_helper.rb', 'lib/jasmine_rails/spec_helper.rb');
     this.copy('jasmine_rails/spec_runner.html.erb', 'app/views/layouts/jasmine_rails/spec_runner.html.erb');
     this.copy('view/index.html', 'app/views/application/index.html');
+    this.template('view/application.html.erb', 'app/views/layouts/application.html.erb');
   }
 });
 

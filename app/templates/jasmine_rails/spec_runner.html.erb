@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
-    <title>Jasmine Specs</title>
-    <%= stylesheet_link_tag *jasmine_css_files %>
-    <%= requirejs_include_tag %>
-  </head>
-  <body>
-    <div id="jasmine_content"></div>
-    <%= yield %>
-    <%= javascript_tag do %>
-      require(['boot', 'json2'], function() {
-        require(['jasmine-specs'], function() {
-          window.onload();
-        });
+<head>
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+  <title>Jasmine Specs</title>
+  <%= stylesheet_link_tag *jasmine_css_files %>
+  <%= requirejs_include_tag %>
+</head>
+<body>
+  <div id="jasmine_content"></div>
+  <%= yield %>
+  <%= javascript_tag do %>
+    require(['boot', 'json2'], function() {
+      require(['jasmine-specs'], function() {
+        window.onload();
       });
-    <% end %>
-  </body>
+    });
+  <% end %>
+</body>
 </html>
 
