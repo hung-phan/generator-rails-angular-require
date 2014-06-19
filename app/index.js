@@ -234,6 +234,18 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     this.directory('app/home', 'app/assets/javascripts/home');
   },
 
+  routes: function() {
+    console.log('Processing config/routes.rb');
+    var path   = 'config/routes.rb',
+        hook   = 'Rails.application.routes.draw do\n',
+        file   = this.readFileAsString(path),
+        insert = "  root 'application#index'\n";
+
+    if (file.indexOf(insert) === -1) {
+      this.write(path, file.replace(hook, hook + insert));
+    }
+  },
+
   stylesheets: function() {
     console.log('Processing app stylesheets');
     var extra  = '';
