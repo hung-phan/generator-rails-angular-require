@@ -1,0 +1,48 @@
+paths:
+  'angular': 'angular/angular'
+    # require angular mocks for testing
+  'angular-mocks': 'angular-mocks/angular-mocks'
+  # require angular resource for easily handling sending and receiving request
+  'angular-resource': 'angular-resource/angular-resource'<% if (includeAngularAnimate) { %>
+  # require angular animate for easily handling animation. I recommend to use this with tweenmax (bower install --save greensock)
+  'angular-animate': 'angular-animate/angular-animate'<% } %>
+  # require angular for better handling and binding controller
+  'angular-ui-router': 'angular-ui-router/release/angular-ui-router'<% if (includeBindonce) { %>
+  # require bindonce to optimize watch for angular binding [https://github.com/Pasvaz/bindonce]
+  'bindonce': 'angular-bindonce/bindonce'<% } %><% if (includeUIBootstrap) { %>
+  # require ui-bootstrap with the embeded template [http://angular-ui.github.io/bootstrap/]
+  'ui-bootstrap-tpls': 'angular-bootstrap/ui-bootstrap-tpls'<% }%>
+  # require jquery
+  'jquery': 'jquery/dist/jquery'<% if (includeLodash) { %>
+  # require lodash
+  'lodash': 'lodash/dist/lodash'<% } %>
+  # require bootstrap.js to make bootstrap components work
+  'bootstrap': 'sass-bootstrap/dist/js/bootstrap'
+  # jasmine boostrap
+  'jasmine': 'jasmine'
+  'jasmine-html': 'jasmine-html'
+  'jasmine-specs': 'jasmine-specs'
+  'json2': 'json2'
+  'boot': 'boot'
+shim:
+  'angular':
+    exports: 'angular'
+    deps: ['jquery']
+  'angular-mocks': ['angular']<% if (includeLodash) { %>
+  'lodash':
+    exports: '_'<% } %>
+  'angular-resource': ['angular']<% if (includeAngularAnimate) { %>
+  'angular-animate': ['angular']<% } %>
+  'angular-ui-router': ['angular']<% if (includeBindonce) { %>
+  'bindonce': ['angular']<% } %><% if (includeUIBootstrap) { %>
+  'ui-bootstrap-tpls': ['angular']<% } %>
+  'bootstrap': ['jquery']
+  'jasmine':
+    exports: 'window.jasmineRequire'
+  'jasmine-html':
+    deps: ['jasmine']
+    exports: 'window.jasmineRequire'
+  'jasmine-specs': ['boot']
+  'boot':
+    deps: ['jasmine', 'jasmine-html']
+    exports: 'window.jasmineRequire'

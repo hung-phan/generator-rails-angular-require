@@ -1,0 +1,18 @@
+# bower dependencies manager for rails
+gem 'bower-rails'<% if (includeModernizr) { %>
+# modernizr
+gem 'modernizr-rails', '~> 2.7.1'<% } %>
+# requirejs
+gem 'requirejs-rails'
+# jasmine
+group :development, :test do
+  gem 'jasmine'
+  gem 'jasmine-rails'
+end<% if (includeLivereload) { %>
+# livereload using guard server
+group :development do
+  gem 'guard'
+  gem 'guard-livereload', require: false
+end<% } %><% if (includeHaml) { %>
+# haml template
+gem 'haml'<% } %>
