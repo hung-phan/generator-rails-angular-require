@@ -11,7 +11,10 @@ describe('rails-angular-require generator', function () {
       }
 
       this.app = helpers.createGenerator('rails-angular-require:app', [
-        '../../app'
+        '../../app', [
+          helpers.createDummyGenerator(),
+          'mocha:app'
+        ]
       ]);
       done();
     }.bind(this));
@@ -25,7 +28,8 @@ describe('rails-angular-require generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': true
+      cssFile: ['includeFontAwesome'],
+      jsFile: ['includeJasmine', 'includeModernizr']
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {

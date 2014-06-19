@@ -94,9 +94,8 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-  },
-
-  projectfiles: function () {
+    this.copy('editorconfig', '.editorconfig');
+    this.copy('jshintrc', '.jshintrc');
   }
 });
 
