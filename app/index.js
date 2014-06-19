@@ -41,29 +41,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  assForTemplateSupport: function() {
-    var cb = this.async();
-
-    var prompts = [{
-      type: 'checkbox',
-      name: 'template',
-      message: 'What template support would you like to include?',
-      choices: [
-        { name: 'HAML' , value: 'includeHaml' , checked: true },
-        { name: 'SLIM' , value: 'includeSlim' , checked: true }
-      ]
-    }];
-
-    this.prompt(prompts, function (props) {
-      function includeTemplate(template) { return props.template.indexOf(template) !== -1; }
-
-      // template support
-      this.includeHaml = includeTemplate('includeHaml');
-      this.includeSlim = includeTemplate('includeSlim');
-
-      cb();
-    }.bind(this));
-  },
 
   assForJSFile: function() {
     var cb = this.async();
