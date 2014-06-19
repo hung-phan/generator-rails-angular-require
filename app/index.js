@@ -236,11 +236,19 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
   stylesheets: function() {
     console.log('Processing app stylesheets');
+    var extra  = '';
+    if (this.includeButtonCss) {
+      extra += " *= require Buttons/scss/buttons.scss\n";
+    }
+    if (this.includeAnimateCss) {
+      extra += " *= require animate-sass/animate.scss\n";
+    }
     var path   = 'app/assets/stylesheets/application.css',
         hook   = ' *= require_tree .\n',
         file   = this.readFileAsString(path),
         insert = ' *= require sass-bootstrap/lib/bootstrap.scss\n' +
                  ' *= require font-awesome/scss/font-awesome.scss\n' +
+                 extra +
                  ' *= require_tree .\n';
 
     if (file.indexOf(insert) === -1) {
