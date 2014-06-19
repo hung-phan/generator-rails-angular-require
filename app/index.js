@@ -41,12 +41,12 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  assForTemplate: function() {
+  assForTemplateSupport: function() {
     var cb = this.async();
 
     var prompts = [{
       type: 'checkbox',
-      name: 'templateFile',
+      name: 'cssFile',
       message: 'What template support would you like to include?',
       choices: [
         { name: 'HAML' , value: 'includeHaml' , checked: true },
@@ -55,11 +55,11 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function (props) {
-      function includeTemplate(template) { return props.templateFile.indexOf(template) !== -1; }
+      function includeCSS(css) { return props.cssFile.indexOf(css) !== -1; }
 
       // template support
-      this.includeHaml = includeTemplate('includeHaml');
-      this.includeSlim = includeTemplate('includeSlim');
+      this.includeHaml = includeCSS('includeHaml');
+      this.includeSlim = includeCSS('includeSlim');
 
       cb();
     }.bind(this));
@@ -97,6 +97,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
+    this.template('config/angular_template_assets.rb', 'config/initializers/angular_template_assets.rb');
   }
 });
 
