@@ -8,13 +8,13 @@ gem 'requirejs-rails'
 group :development, :test do
   gem 'jasmine'
   gem 'jasmine-rails'
-end<% if (includeLivereload) { %>
+end<% if (includeLiveReload) { %>
 # livereload using guard server
 group :development do
   gem 'guard'
   gem 'guard-livereload', require: false
 end<% } %><% if (includeHaml) { %>
 # haml template
-gem 'haml'<% } %><% if (includeHaml) { %>
+gem 'haml'<% } %><% if (includeSlim) { %>
 # slim template
 gem 'slim'<% } %>

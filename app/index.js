@@ -9,7 +9,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.on('end', function () {
       if (!this.options['skip-install']) {
-        //rails generate jasmine_rails:install
+        console.log("Thank for using");
       }
     });
   },
@@ -64,6 +64,28 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
+  assForUtility: function() {
+    var cb = this.async();
+
+    var prompts = [{
+      type: 'checkbox',
+      name: 'tool',
+      message: 'What tool support would you like to include?',
+      choices: [
+        { name: 'Livereload' , value: 'includeLiveReload' , checked: false }
+      ]
+    }];
+
+    this.prompt(prompts, function (props) {
+      function includeTool(tool) { return props.tool.indexOf(tool) !== -1; }
+
+      // template support
+      this.includeLiveReload = includeTool('includeLiveReload');
+
+      cb();
+    }.bind(this));
+  },
+
   assForJSFile: function() {
     var cb = this.async();
 
@@ -103,9 +125,9 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
     //modify file before insert
     file = file.replace("# Use jquery as the JavaScript library\n", '')
-               .replace("gem 'jquery-rails'", '')
-               .replace("# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks", '')
-               .replace("gem 'turbolinks'", '');
+               .replace("gem 'jquery-rails'\n", '')
+               .replace("# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks\n", '')
+               .replace("gem 'turbolinks'\n", '');
 
     if (file.indexOf(insert) === -1) {
       this.write(dest, file + insert);
@@ -127,13 +149,77 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }
   },
 
-  app: function () {
+  templateSupport: function() {
     this.template('config/angular_template_assets.rb', 'config/initializers/angular_template_assets.rb');
+  },
+
+  requirejs: function() {
+    //requirejs config
     this.template('config/requirejs.yml', 'config/requirejs.yml');
+  },
+
+  jasmine: function() {
+    //process jasmine
+
+    //init template and rooting at localhost:3000/specs
+    this.spawnCommand('rails', ['generate', 'jasmine_rails:install']);
+    this.mkdir('spec/javascripts/helpers');
+    this.mkdir('spec/javascripts/spec');
+    this.copy('jasmine_rails/jasmine.yml', 'spec/javascripts/support/jasmine.yml');
+    this.copy('spec/spec/homeSpec.coffee', 'spec/javascripts/spec/homeSpec.coffee');
     this.copy('jasmine_rails/spec_helper.rb', 'lib/jasmine_rails/spec_helper.rb');
     this.copy('jasmine_rails/spec_runner.html.erb', 'app/views/layouts/jasmine_rails/spec_runner.html.erb');
+
+    //include config into config/application.rb
+    var path   = 'config/application.rb',
+        hook   = 'class Application < Rails::Application\n',
+        file   = this.readFileAsString(path),
+        insert = '    config.autoload_paths += %W(#{config.root}/lib)\n';
+
+    if (file.indexOf(insert) === -1) {
+      this.write(path, file.replace(hook, hook + insert));
+    }
+  },
+
+  guard: function() {
+    //process livereload
+    if (this.includeLiveReload) {
+      this.spawnCommand('guard', ['init', 'livereload']);
+    }
+  },
+
+  view: function () {
     this.copy('view/index.html', 'app/views/application/index.html');
     this.template('view/application.html.erb', 'app/views/layouts/application.html.erb');
+  },
+
+  appJs: function() {
+    //process Gemfile
+    var path   = 'app/javascripts/application.js',
+        file   = this.readFileAsString(path);
+
+    //modify file before insert
+    file = file.replace("//= require jquery\n", '')
+               .replace("//= require jquery_ujs\n", '')
+               .replace("//= require turbolinks\n", '')
+               .replace("//= require_tree .", '//= require main.js');
+
+    this.write(path, file);
+    this.template('app/main.js.coffee', 'app/assets/javascripts/main.js.coffee');
+    this.directory('app/home', 'app/assets/javascripts/home');
+  },
+
+  stylesheets: function() {
+    var path   = 'app/assets/stylesheets/application.css',
+        hook   = ' *= require_tree .\n',
+        file   = this.readFileAsString(path),
+        insert = ' *= require sass-bootstrap/lib/bootstrap.scss\n' +
+                 ' *= require font-awesome/scss/font-awesome.scss\n' +
+                 ' *= require_tree .\n';
+
+    if (file.indexOf(insert) === -1) {
+      this.write(path, file.replace(hook, insert));
+    }
   }
 });
 
