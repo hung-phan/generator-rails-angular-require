@@ -10,6 +10,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.on('end', function () {
       if (!this.options['skip-install']) {
+        // do nothing
       }
     });
   },
@@ -54,7 +55,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function (props) {
-      function includeTemplate(js) { return props.templateSupport.indexOf(js) !== -1; }
+      function includeTemplate(template) { return props.templateSupport.indexOf(template) !== -1; }
 
       // template support
       this.includeHaml = includeTemplate('includeHaml');
