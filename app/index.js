@@ -117,6 +117,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
   gemfile: function() {
     //process Gemfile
+    console.log('Processing Gemfile');
     this.template('Gemfile', 'tmp/yeoman/Gemfile');
     var path   = 'tmp/yeoman/Gemfile',
         dest   = 'Gemfile',
@@ -137,6 +138,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
   bower: function() {
     //process bower
+    console.log('Processing Bowerfile');
     this.spawnCommand('rails', ['generate', 'bower_rails:initialize']);
     this.template('Bowerfile', 'tmp/yeoman/Bowerfile');
     var path   = 'tmp/yeoman/Bowerfile',
@@ -150,16 +152,19 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   templateSupport: function() {
+    console.log('Adding template support: angular_template_assets.rb');
     this.template('config/angular_template_assets.rb', 'config/initializers/angular_template_assets.rb');
   },
 
   requirejs: function() {
     //requirejs config
+    console.log('Requirejs config/requirejs.yml');
     this.template('config/requirejs.yml', 'config/requirejs.yml');
   },
 
   jasmine: function() {
     //process jasmine
+    console.log('Integrate jasmine testing framework');
 
     //init template and rooting at localhost:3000/specs
     this.spawnCommand('rails', ['generate', 'jasmine_rails:install']);
@@ -183,18 +188,20 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
   guard: function() {
     //process livereload
+    console.log('Add livereload utility');
     if (this.includeLiveReload) {
       this.spawnCommand('guard', ['init', 'livereload']);
     }
   },
 
   view: function () {
+    console.log('Processing view');
     this.copy('view/index.html', 'app/views/application/index.html');
     this.template('view/application.html.erb', 'app/views/layouts/application.html.erb');
   },
 
   appJs: function() {
-    //process Gemfile
+    console.log('Processing app js');
     var path   = 'app/javascripts/application.js',
         file   = this.readFileAsString(path);
 
@@ -210,6 +217,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   stylesheets: function() {
+    console.log('Processing app stylesheets');
     var path   = 'app/assets/stylesheets/application.css',
         hook   = ' *= require_tree .\n',
         file   = this.readFileAsString(path),
