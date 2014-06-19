@@ -23,8 +23,8 @@ describe('rails-angular-require generator', function () {
   it('creates expected files', function (done) {
     var expected = [
       // add files you expect to exist here.
-      '.jshintrc',
-      '.editorconfig'
+      'Bowerfile',
+      'Gemfile'
     ];
 
     helpers.mockPrompt(this.app, {

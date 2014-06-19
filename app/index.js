@@ -95,8 +95,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
     this.template('config/angular_template_assets.rb', 'config/initializers/angular_template_assets.rb');
     this.template('config/requirejs.yml', 'config/requirejs.yml');
     this.copy('jasmine_rails/spec_helper.rb', 'lib/jasmine_rails/spec_helper.rb');
