@@ -4,6 +4,14 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
+var exec = require('child_process').exec;
+function puts(error, stdout, stderr) {
+  console.log('stdout: ' + stdout);
+  console.log('stderr: ' + stderr);
+  if (error !== null) {
+    console.log('exec error: ' + error);
+  }
+}
 
 var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -48,8 +56,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       name: 'htmlFile',
       message: 'What template support would you like to include?',
       choices: [
-        { name: 'HAML' , value: 'includeHaml' , checked: true },
-        { name: 'SLIM' , value: 'includeSlim' , checked: true }
+        { name: 'HAML' , value: 'includeHaml' , checked: true }
       ]
     }];
 
@@ -58,7 +65,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
       // template support
       this.includeHaml = includeTemplate('includeHaml');
-      this.includeSlim = includeTemplate('includeSlim');
 
       cb();
     }.bind(this));
@@ -137,13 +143,13 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     if (file.indexOf(insert) === -1) {
       this.write(dest, file + insert);
     }
-    this.spawnCommand('bundle', ['install']);
+    exec("bundle install", puts);
   },
 
   bower: function() {
     //process bower
     console.log('Processing Bowerfile');
-    this.spawnCommand('rails', ['generate', 'bower_rails:initialize']);
+    exec("rails generate bower_rails:initialize", puts);
     var path   = 'tmp/yeoman/Bowerfile',
         dest   = 'Bowerfile',
         file   = this.readFileAsString(dest),
@@ -152,7 +158,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     if (file.indexOf(insert) === -1) {
       this.write(dest, file + insert);
     }
-    this.spawnCommand('rake', ['bower:install']);
+    exec("rake bower:install", puts);
   },
 
   templateSupport: function() {
@@ -171,7 +177,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     console.log('Integrate jasmine testing framework');
 
     //init template and rooting at localhost:3000/specs
-    this.spawnCommand('rails', ['generate', 'jasmine_rails:install']);
+    exec("rails generate jasmine_rails:install", puts);
     this.mkdir('spec/javascripts/helpers');
     this.mkdir('spec/javascripts/spec');
     this.copy('jasmine_rails/jasmine.yml', 'spec/javascripts/support/jasmine.yml');
@@ -194,7 +200,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     //process livereload
     console.log('Add livereload utility');
     if (this.includeLiveReload) {
-      this.spawnCommand('guard', ['init', 'livereload']);
+      exec("guard init livereload", puts);
     }
   },
 
