@@ -135,6 +135,9 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     if (file.indexOf(insert) === -1) {
       this.write(dest, file + insert);
     }
+  },
+
+  bundleInstall: function() {
     shell.exec("bundle install");
   },
 
@@ -157,6 +160,9 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     if (file.indexOf(insert) === -1) {
       this.write(dest, file + insert);
     }
+  },
+
+  bowerInstall: function() {
     shell.exec("rake bower:install");
   },
 
@@ -171,12 +177,15 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     this.template('config/requirejs.yml', 'config/requirejs.yml');
   },
 
+  jasmineInit: function() {
+    console.log('Integrate jasmine testing framework');
+    shell.exec("rails generate jasmine_rails:install");
+  },
+
   jasmine: function() {
     //process jasmine
-    console.log('Integrate jasmine testing framework');
 
     //init template and rooting at localhost:3000/specs
-    shell.exec("rails generate jasmine_rails:install");
     this.mkdir('spec/javascripts/helpers');
     this.mkdir('spec/javascripts/spec');
     this.copy('jasmine_rails/jasmine.yml', 'spec/javascripts/support/jasmine.yml');
@@ -211,7 +220,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
   appJs: function() {
     console.log('Processing app js');
-    var path   = 'app/javascripts/application.js',
+    var path   = 'app/assets/javascripts/application.js',
         file   = this.readFileAsString(path);
 
     //modify file before insert
