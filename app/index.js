@@ -40,6 +40,30 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
+  assForTemplateSupport: function() {
+    var cb = this.async();
+
+    var prompts = [{
+      type: 'checkbox',
+      name: 'templateSupport',
+      message: 'What template support would you like to include?',
+      choices: [
+        { name: 'HAML' , value: 'includeHaml' , checked: true },
+        { name: 'SLIM' , value: 'includeSlim' , checked: true }
+      ]
+    }];
+
+    this.prompt(prompts, function (props) {
+      function includeTemplate(js) { return props.templateSupport.indexOf(js) !== -1; }
+
+      // template support
+      this.includeHaml = includeTemplate('includeHaml');
+      this.includeSlim = includeTemplate('includeSlim');
+
+      cb();
+    }.bind(this));
+  },
+
   assForJSFile: function() {
     var cb = this.async();
 
@@ -52,7 +76,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
         { name: 'Angular UI-Bootstrap'      , value: 'includeUIBootstrap'    , checked: false } ,
         { name: 'Angular animate'           , value: 'includeAngularAnimate' , checked: false } ,
         { name: 'Bindonce by Pasvaz'        , value: 'includeBindonce'       , checked: false } ,
-        { name: 'Jasmine Testing framework' , value: 'includeJasmine'        , checked: true }  ,
         { name: 'Modernizr'                 , value: 'includeModernizr'      , checked: true }
       ]
     }];
@@ -65,11 +88,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       this.includeUIBootstrap    = includeJS('includeUIBootstrap');
       this.includeAngularAnimate = includeJS('includeAngularAnimate');
       this.includeBindonce       = includeJS('includeBindonce');
-      this.includeJasmine        = includeJS('includeJasmine');
       this.includeModernizr      = includeJS('includeModernizr');
-
-      if (this.includeJasmine) { this.testFramework = 'jasmine'; }
-
       cb();
     }.bind(this));
   },
