@@ -46,7 +46,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
     var prompts = [{
       type: 'checkbox',
-      name: 'templateFile',
+      name: 'cssFile',
       message: 'What template support would you like to include?',
       choices: [
         { name: 'HAML' , value: 'includeHaml' , checked: true },
@@ -55,7 +55,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function (props) {
-      function includeTemplate(template) { return props.templateFile.indexOf(template) !== -1; }
+      function includeTemplate(template) { return props.cssFile.indexOf(template) !== -1; }
 
       // template support
       this.includeHaml = includeTemplate('includeHaml');
