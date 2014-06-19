@@ -10,7 +10,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.on('end', function () {
       if (!this.options['skip-install']) {
-        // do nothing
+        console.log("End");
       }
     });
   },
@@ -46,7 +46,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
     var prompts = [{
       type: 'checkbox',
-      name: 'templateSupport',
+      name: 'template',
       message: 'What template support would you like to include?',
       choices: [
         { name: 'HAML' , value: 'includeHaml' , checked: true },
@@ -55,7 +55,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function (props) {
-      function includeTemplate(template) { return props.templateSupport.indexOf(template) !== -1; }
+      function includeTemplate(template) { return props.template.indexOf(template) !== -1; }
 
       // template support
       this.includeHaml = includeTemplate('includeHaml');
