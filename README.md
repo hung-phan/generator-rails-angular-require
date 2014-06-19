@@ -1,4 +1,4 @@
-# generator-rails-angular-require [![Build Status](https://secure.travis-ci.org/hung-phan/generator-rails-angular-require.png?branch=master)](https://travis-ci.org/hung-phan/generator-rails-angular-require)
+# generator-rails-angular-require
 
 > [Yeoman](http://yeoman.io) generator
 

@@ -1,7 +1,0 @@
-language: node_js
-node_js:
-  - '0.10'
-before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-rails-angular-require' ]; then cd .. && eval "mv $currentfolder generator-rails-angular-require" && cd generator-rails-angular-require; fi
-

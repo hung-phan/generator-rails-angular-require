@@ -5,12 +5,11 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 
-
 var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.on('end', function () {
       if (!this.options['skip-install']) {
-        console.log("End");
+        //rails generate jasmine_rails:install
       }
     });
   },
@@ -92,6 +91,40 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       this.includeModernizr      = includeJS('includeModernizr');
       cb();
     }.bind(this));
+  },
+
+  gemfile: function() {
+    //process Gemfile
+    this.template('Gemfile', 'tmp/yeoman/Gemfile');
+    var path   = 'tmp/yeoman/Gemfile',
+        dest   = 'Gemfile',
+        file   = this.readFileAsString(dest),
+        insert = this.readFileAsString(path);
+
+    //modify file before insert
+    file = file.replace("# Use jquery as the JavaScript library\n", '')
+               .replace("gem 'jquery-rails'", '')
+               .replace("# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks", '')
+               .replace("gem 'turbolinks'", '');
+
+    if (file.indexOf(insert) === -1) {
+      this.write(dest, file + insert);
+    }
+    this.spawnCommand('bundle', ['install']);
+  },
+
+  bower: function() {
+    //process bower
+    this.spawnCommand('rails', ['generate', 'bower_rails:initialize']);
+    this.template('Bowerfile', 'tmp/yeoman/Bowerfile');
+    var path   = 'tmp/yeoman/Bowerfile',
+        dest   = 'Bowerfile',
+        file   = this.readFileAsString(dest),
+        insert = this.readFileAsString(path);
+
+    if (file.indexOf(insert) === -1) {
+      this.write(dest, file + insert);
+    }
   },
 
   app: function () {
