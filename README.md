@@ -23,6 +23,12 @@ To be able to support template preprocessor, make sure you install the right `ge
 $ gem install slim # for slim
 $ gem install haml # for haml
 ```
+Other dependencies
+
+1. SASS (gem install sass)
+
+2. Compass (gem install compass)
+
 
 ## Usage for Rails 4.*
 
