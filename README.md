@@ -92,7 +92,7 @@ application/
   |  |- javascripts/
   |  |  |- helpers/
   |  |  |- spec/
-  |  |  |  |- codeSpec.{js, coffee}
+  |  |  |  |- codeSpec.{js, coffee} # suffix by _unitspec.{js, coffee}
   |  |  |- support/
   |  |  |  |- jasmine.yml # jasmine config
   |- test/
