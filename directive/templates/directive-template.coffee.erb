@@ -1,0 +1,13 @@
+define ["angular"], (angular) ->
+  "use strict"
+  angular.module("<%= name %>Module", []).directive "<%= name %>", [->
+    restrict: "E"
+    replace: true
+    templateUrl: "<%= asset_path %>"
+    scope: {}
+    link: (scope, element, attrs) ->
+      scope.directiveTitle = "dummy"
+      return
+  ]
+  return
+

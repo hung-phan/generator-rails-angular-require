@@ -16,7 +16,6 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
 util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
 
 ControllerGenerator.prototype.files = function files() {
-  // replace between
   var prefix = 'app/assets/javascripts/' + this.name + '/';
   this.template('controller-template.coffee.erb'  , prefix + this.name + '.coffee.erb');
   this.template('controller-template.spec.coffee' , 'spec/javascripts/spec/' + this.name + '_unitspec.coffee');
