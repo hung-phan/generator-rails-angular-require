@@ -191,7 +191,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     this.mkdir('spec/javascripts/helpers');
     this.mkdir('spec/javascripts/spec');
     this.copy('jasmine_rails/jasmine.yml', 'spec/javascripts/support/jasmine.yml');
-    this.copy('spec/javascripts/spec/homeSpec.coffee', 'spec/javascripts/spec/homeSpec.coffee');
+    this.copy('spec/javascripts/spec/home_unitspec.coffee', 'spec/javascripts/spec/home_unitspec.coffee');
     this.copy('jasmine_rails/spec_helper.rb', 'lib/jasmine_rails/spec_helper.rb');
     this.copy('jasmine_rails/spec_runner.html.erb', 'app/views/layouts/jasmine_rails/spec_runner.html.erb');
 

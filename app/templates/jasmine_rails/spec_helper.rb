@@ -4,14 +4,16 @@ module JasmineRails
     include RequirejsHelper
 
     def spec_files
-      files = Jasmine::Core.js_files
-      files += JasmineRails.reporter_files params[:reporters]
-      files << 'jasmine-specs.js'
-      files.map do |file|
-        file = file.split '.'
-        file.pop()
-        file[0]
+      spec_files = []
+      env = Rails.application.assets
+      env.each_logical_path do |lp|
+        if lp =~ %r{^spec/.*_unitspec\.js$}
+          file_name = lp.split "."
+          file_name.pop()
+          spec_files << (file_name.join ".")
+        end
       end
+      spec_files
     end
   end
 end

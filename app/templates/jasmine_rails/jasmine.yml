@@ -30,7 +30,7 @@ helpers:
 # list of file expressions to include as specs into spec runner
 # relative path from spec_dir
 spec_files:
-  - "**/*[Ss]pec.{js.coffee,js,coffee}"
+  - "**/*_unitspec.{js.coffee,js,coffee}"
 
 # path to directory of temporary files
 # (spec runner and asset cache)

@@ -19,6 +19,6 @@ ControllerGenerator.prototype.files = function files() {
   // replace between
   var prefix = 'app/assets/javascripts/' + this.name + '/';
   this.template('controller-template.coffee.erb'  , prefix + this.name + '.coffee.erb');
-  this.template('controller-template.spec.coffee' , 'spec/javascripts/spec/' + this.name + 'Spec.coffee');
+  this.template('controller-template.spec.coffee' , 'spec/javascripts/spec/' + this.name + '_unitspec.coffee');
   this.template('controller-template.tpl.html'    , prefix + this.name + '.tpl.html');
 };

@@ -11,7 +11,7 @@
   <%= yield %>
   <%= javascript_tag do %>
     require(['boot', 'json2'], function() {
-      require(['jasmine-specs'], function() {
+      require(<%= raw spec_files %>, function() {
         window.onload();
       });
     });
