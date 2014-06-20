@@ -24,7 +24,7 @@ $ gem install slim # for slim
 $ gem install haml # for haml
 ```
 
-## Usage
+## Usage for Rails 4.*
 
 Firstly, create Ruby on Rails project with normal rails command, but skip it bundle:
 
