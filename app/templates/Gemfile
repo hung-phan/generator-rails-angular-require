@@ -20,5 +20,5 @@ group :development do
 end<% } %><% if (includeHaml) { %>
 # haml template
 gem 'haml'<% } %><% if (includeSlim) { %>
-# haml template
+# slim template
 gem 'slim'<% } %>

@@ -131,6 +131,17 @@ $ rails server
 
 Access `localhost:3000/specs`
 
+### Subgenerators
+
+This also supports for subgenerator for controller, filter, service, and directive as well. Make sure you link them in your
+__main.js__
+```bash
+$ yo angular-with-require:controller "name" #replace the name with your module name
+$ yo angular-with-require:service "name" #replace the name with your module name
+$ yo angular-with-require:directive "name" #replace the name with your module name
+$ yo angular-with-require:filter "name" #replace the name with your module name
+```
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
