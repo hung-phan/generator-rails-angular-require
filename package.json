@@ -6,8 +6,8 @@
   "main": "app/index.js",
   "repository": "hung-phan/generator-rails-angular-require",
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Phan Quang Hung",
+    "email": "colorvisavn@gmail.com",
     "url": "https://github.com/hung-phan"
   },
   "engines": {
