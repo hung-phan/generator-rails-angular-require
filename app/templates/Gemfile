@@ -7,7 +7,7 @@ gem 'requirejs-rails'<% if (includeButtonCss) { %>
 # button sass
 gem 'compass-rails'<% } %><% if (includeFontAwesome) { %>
 # font awesome
-gem "font-awesome-rails"<% } %>
+gem 'font-awesome-rails'<% } %>
 # jasmine
 group :development, :test do
   gem 'jasmine'
