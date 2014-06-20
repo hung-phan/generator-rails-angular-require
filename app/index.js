@@ -49,7 +49,8 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       name: 'htmlFile',
       message: 'What template support would you like to include?',
       choices: [
-        { name: 'HAML' , value: 'includeHaml' , checked: true }
+        { name: 'HAML' , value: 'includeHaml' , checked: true },
+        { name: 'SLIM' , value: 'includeSlim' , checked: true }
       ]
     }];
 
@@ -58,6 +59,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
       // template support
       this.includeHaml = includeTemplate('includeHaml');
+      this.includeSlim = includeTemplate('includeSlim');
 
       cb();
     }.bind(this));
