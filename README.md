@@ -11,7 +11,7 @@ To run this version of yeoman generator. First, make sure that you have already 
 $ npm install -g yo
 ```
 
-To install generator-angular-with-require from npm, run:
+To install generator-rails-angular-require from npm, run:
 
 ```bash
 $ npm install -g generator-rails-angular-require
