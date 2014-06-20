@@ -1,5 +1,4 @@
-# A sample Bowerfile
-# Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
+# auto generate bower assets
 
 asset 'sass-bootstrap'<% if (includeFontAwesome) { %>
 asset 'font-awesome'<% } %><% if (includeLodash) { %>

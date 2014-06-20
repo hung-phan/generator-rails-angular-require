@@ -17,6 +17,13 @@ To install generator-angular-with-require from npm, run:
 $ npm install -g generator-rails-angular-require
 ```
 
+To be able to support template preprocessor, make sure you install the right `gem` first:
+
+```bash
+$ gem install slim # for slim
+$ gem install haml # for haml
+```
+
 ## Usage
 
 Firstly, create Ruby on Rails project with normal rails command, but skip it bundle:
