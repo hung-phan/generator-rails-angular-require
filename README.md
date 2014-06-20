@@ -109,7 +109,7 @@ application/
 
 ### Live reload
 
-To be able to use livereload utility, I use [guard] (https://github.com/guard/guard-livereload) to automatically
+To be able to use livereload utility, I use [guard](https://github.com/guard/guard-livereload) to automatically
 reload the browser. Use [rack-livereload](https://github.com/johnbintz/rack-livereload) or install [LiveReload Safari/Chrome extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-)
 
 ```bash
