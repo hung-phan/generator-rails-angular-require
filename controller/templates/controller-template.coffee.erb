@@ -1,0 +1,23 @@
+define [
+  "angular"
+  "angular-ui-router"
+], (angular) ->
+
+  #config path for <%= name %> module
+  angular.module("<%= name %>Module", ["ui.router"]).config([
+    "$stateProvider"
+    ($stateProvider) ->
+      $stateProvider.state "<%= name %>",
+        url: "/<%= name %>"
+        templateUrl: "<%= asset_path %>"
+        controller: "Dummy<%= uppercaseName %>Controller"
+
+  ]).controller "Dummy<%= uppercaseName %>Controller", [
+    "$scope"
+    "$location"
+    ($scope, $location) ->
+
+      # initialize
+      $scope.pageTitle = "dummy"
+  ]
+  return

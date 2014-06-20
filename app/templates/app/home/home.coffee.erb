@@ -9,7 +9,7 @@ define [
     ($stateProvider) ->
       $stateProvider.state "home",
         url: "/"
-        templateUrl: "<%= asset_path("home/home.html") %>"
+        templateUrl: "<%= asset_path("home/home.tpl.html") %>"
         controller: "HomeController"
 
   ]).controller "HomeController", [

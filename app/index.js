@@ -232,7 +232,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
                .replace("//= require_tree .", '//= require main.js');
 
     this.write(path, file);
-    this.template('app/main.js.coffee', 'app/assets/javascripts/main.js.coffee');
+    this.template('app/main.coffee', 'app/assets/javascripts/main.coffee');
     this.directory('app/home', 'app/assets/javascripts/home');
   },
 
