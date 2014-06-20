@@ -5,7 +5,9 @@ gem 'modernizr-rails', '~> 2.7.1'<% } %>
 # requirejs
 gem 'requirejs-rails'<% if (includeButtonCss) { %>
 # button sass
-gem 'compass-rails'<% } %>
+gem 'compass-rails'<% } %><% if (includeFontAwesome) { %>
+# font awesome
+gem "font-awesome-rails"<% } %>
 # jasmine
 group :development, :test do
   gem 'jasmine'

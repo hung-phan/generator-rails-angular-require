@@ -229,7 +229,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     file = file.replace("//= require jquery\n", '')
                .replace("//= require jquery_ujs\n", '')
                .replace("//= require turbolinks\n", '')
-               .replace("//= require_tree .", '//= require main.js');
+               .replace("//= require_tree .", '//= require main');
 
     this.write(path, file);
     this.template('app/main.coffee', 'app/assets/javascripts/main.coffee');
@@ -261,7 +261,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
         hook   = ' *= require_tree .\n',
         file   = this.readFileAsString(path),
         insert = ' *= require sass-bootstrap/lib/bootstrap.scss\n' +
-                 ' *= require font-awesome/scss/font-awesome.scss\n' +
+                 ' *= require font-awesome\n' +
                  extra +
                  ' *= require_tree .\n';
 
