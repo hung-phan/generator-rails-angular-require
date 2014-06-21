@@ -2,9 +2,9 @@
 define [
   "angular"
 ], (angular) ->
-  <% templates.each do |module_name, path| %>
+<% templates.each do |module_name, path_asset| %>
   angular.module("<%= module_name %>", []).run ["$templateCache", ($templateCache) ->
-    $templateCache.put "<%= path %>", """<%= asset_to_s module_name  %>"""
+    $templateCache.put "<%= path_asset %>", """<%= asset_to_s module_name  %>"""
   ]
-  <% end %>
+<% end %>
   return
