@@ -1,7 +1,7 @@
 module JasmineRails
   module SpecHelper
+    include ActionView::Helpers::JavaScriptHelper
     # Gives us access to the require_js_include_tag helper
-    extend self
     include RequirejsHelper
 
     def spec_files
@@ -15,6 +15,10 @@ module JasmineRails
         end
       end
       spec_files
+    end
+
+    def asset_to_s path
+      Rails.application.assets[path].body.html_safe
     end
 
     def templates

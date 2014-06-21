@@ -4,8 +4,7 @@ define [
 ], (angular) ->
   <% templates.each do |module_name, path| %>
   angular.module("<%= module_name %>", []).run ["$templateCache", ($templateCache) ->
-    $templateCache.put "<%= path %>", "<div>Hello world</div>"
+    $templateCache.put "<%= path %>", """<%= asset_to_s module_name  %>"""
   ]
   <% end %>
   return
-
