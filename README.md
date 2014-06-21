@@ -126,15 +126,15 @@ $ bundle exec guard
 
 ### Testing
 
-Unit testing for code module, run:
+Run:
 
 ```bash
 $ rails server
 ```
 
-Then access `localhost:3000/specs`
+For unit testing, access `localhost:3000/specs`
 
-E2E testing, run
+For e2e testing, run:
 
 ```bash
 $ protractor protractor.config.js
