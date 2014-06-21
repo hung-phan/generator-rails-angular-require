@@ -1,0 +1,11 @@
+<% extend JasmineRails::SpecHelper %>
+define [
+  "angular"
+], (angular) ->
+  <% templates.each do |module_name, path| %>
+  angular.module("<%= module_name %>", []).run ["$templateCache", ($templateCache) ->
+    $templateCache.put "<%= path %>", "<div>Hello world</div>"
+  ]
+  <% end %>
+  return
+
