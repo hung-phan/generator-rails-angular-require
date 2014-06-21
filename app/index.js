@@ -206,6 +206,13 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }
   },
 
+  e2eTesting: function() {
+    //process e2e testing
+    console.log('Processing e2e testing template');
+    this.copy('protractor.config.js', 'protractor.config.js');
+    this.copy('spec/javascripts/e2espec/home_e2espec.coffee', 'spec/javascripts/e2espec/home_e2espec.coffee');
+  },
+
   guard: function() {
     //process livereload
     console.log('Add livereload utility');
