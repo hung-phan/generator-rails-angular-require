@@ -38,18 +38,13 @@ Firstly, create Ruby on Rails project with normal rails command, but skip it bun
 $ rails new app-name --skip-bundle
 ```
 
-Also add additional params to specify the database, which you want to use:
-```bash
-$ rails new app-name --database=postgresql --skip-bundle
-$ rails new app-name --database=mysql --skip-bundle
-```
 Finally, initiate the generator:
 
 ```bash
 $ yo rails-angular-require
 ```
 
-Answer 'Yes', to all resolving 'Overwrite' action. Then config the 'config/database.yml' if you use different
+Answer 'Yes' to all 'Overwrite' actions. Then config the 'config/database.yml' if you use different
 database than sqlite3.
 
 ## Structure
@@ -86,6 +81,8 @@ application/
   |  |- requirejs.yml # requirejs config file
   |- db/
   |- lib/
+  |  |- jasmine_rails/
+  |  |  |- spec_helper.rb # jasmine rails helper
   |- log/
   |- public/
   |- spec/
@@ -114,8 +111,8 @@ application/
 ```
 
 ## Template
-I define all the _templates_ with suffix _.tpl.*_ is to those into _$templateCache_ to be able to test
-directive with _templateUrl_. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.
+I define all the __templates__ with suffix __.tpl.*__ is to those into __$templateCache__ to be able to test
+directive with __templateUrl__. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.
 
 ## Task
 
