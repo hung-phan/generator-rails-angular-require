@@ -48,6 +48,48 @@ $ yo rails-angular-require
 Answer 'Yes' to all 'Overwrite' actions. Then config the 'config/database.yml' if you use different
 database than sqlite3.
 
+## Template
+I define all the templates with suffix __.tpl.*__ to load those into __$templateCache__, which make them testable
+with directives that rely on partial template. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.
+
+## Task
+
+### Live reload
+
+For using livereload utility, firstly, install [guard](https://github.com/guard/guard-livereload). Then, use [rack-livereload](https://github.com/johnbintz/rack-livereload)
+or install [LiveReload Safari/Chrome extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-)
+
+```bash
+$ bundle exec guard # to run the guard server and enjoy coding
+```
+
+### Testing
+
+Run:
+
+```bash
+$ rails server
+```
+
+For unit testing, access `localhost:3000/specs`
+
+For e2e testing, run:
+
+```bash
+$ protractor protractor.config.js
+```
+
+### Subgenerators
+
+This also supports for subgenerator for controller, filter, service, and directive as well. Make sure you link them in your
+__main.js__
+```bash
+$ yo rails-angular-require:controller "name" #replace the name with your module name
+$ yo rails-angular-require:service "name" #replace the name with your module name
+$ yo rails-angular-require:directive "name" #replace the name with your module name
+$ yo rails-angular-require:filter "name" #replace the name with your module name
+
+```
 ## Structure
 
 ```
@@ -109,48 +151,6 @@ application/
   |- Guardfile # Guard file for livereload
   |- Rakefile
   |- README.rdoc
-```
-
-## Template
-I define all the templates with suffix __.tpl.*__ to load those into __$templateCache__, which make them testable
-with directives that rely on partial template. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.
-
-## Task
-
-### Live reload
-
-For using livereload utility, firstly, install [guard](https://github.com/guard/guard-livereload). Then, use [rack-livereload](https://github.com/johnbintz/rack-livereload)
-or install [LiveReload Safari/Chrome extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-)
-
-```bash
-$ bundle exec guard # to run the guard server and enjoy coding
-```
-
-### Testing
-
-Run:
-
-```bash
-$ rails server
-```
-
-For unit testing, access `localhost:3000/specs`
-
-For e2e testing, run:
-
-```bash
-$ protractor protractor.config.js
-```
-
-### Subgenerators
-
-This also supports for subgenerator for controller, filter, service, and directive as well. Make sure you link them in your
-__main.js__
-```bash
-$ yo rails-angular-require:controller "name" #replace the name with your module name
-$ yo rails-angular-require:service "name" #replace the name with your module name
-$ yo rails-angular-require:directive "name" #replace the name with your module name
-$ yo rails-angular-require:filter "name" #replace the name with your module name
 ```
 
 ## License
