@@ -9,7 +9,7 @@ define [
 
     beforeEach ->
       module("<%= name %>Module")
-      module("<%= name %>/<%= name %>.tpl.html")
+      #module("<%= name %>/<%= name %>.tpl.html")
       inject(($compile, _$rootScope_) ->
         $scope = _$rootScope_
         element = angular.element("<<%=name %>></<%= name%>>")

@@ -15,6 +15,19 @@ module JasmineRails
       end
       spec_files
     end
+
+    def template_inject
+      template_files = []
+      env = Rails.application.assets
+      env.each_logical_path do |lp|
+        if lp =~ %r{^**/.*\.tpl\.html$}
+          angular_module = "angular.module(#{lp}).run(['$templateCache', function($templateCache) {
+            $templateCache.put(#{asset_path lp}, '#{Rails.application.assets[lp].to_s}');
+          }]);"
+          template_files << angular_module
+        end
+      end
+      template_files
+    end
   end
 end
-
