@@ -7,12 +7,6 @@ define [
     #element = undefined
     #$scope = undefined
 
-    #angular.module("<%= angular_module %>").run [
-      #"$templateCache"
-      #($templateCache) ->
-        #$templateCache.put "<%= angular_template_name %>", <%= html %>
-    #]
-
     #beforeEach ->
       #module("<%= name %>Module")
       #module("src/<%= name %>/<%= name %>.tpl.html")
