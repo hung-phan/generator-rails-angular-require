@@ -10,7 +10,7 @@
   <div id="jasmine_content"></div>
   <%= yield %>
   <%= javascript_tag do %>
-    require(['boot', 'json2'], function() {
+    require(['boot', 'json2', 'helper/angular_template_helper'], function() {
       require(<%= raw spec_files %>, function() {
         window.onload();
       });

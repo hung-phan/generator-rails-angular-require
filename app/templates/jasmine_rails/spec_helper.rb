@@ -1,6 +1,7 @@
 module JasmineRails
   module SpecHelper
     # Gives us access to the require_js_include_tag helper
+    extend self
     include RequirejsHelper
 
     def spec_files
@@ -16,18 +17,12 @@ module JasmineRails
       spec_files
     end
 
-    def template_inject
-      template_files = []
-      env = Rails.application.assets
-      env.each_logical_path do |lp|
-        if lp =~ %r{^**/.*\.tpl\.html$}
-          angular_module = "angular.module(#{lp}).run(['$templateCache', function($templateCache) {
-            $templateCache.put(#{asset_path lp}, '#{Rails.application.assets[lp].to_s}');
-          }]);"
-          template_files << angular_module
-        end
-      end
-      template_files
+    def templates
+      Hash[
+        Rails.application.assets.each_logical_path.
+        select { |file| file.end_with?('tpl.html') }.
+        map { |file| [file, ActionController::Base.helpers.asset_path(file)] }
+      ]
     end
   end
 end
