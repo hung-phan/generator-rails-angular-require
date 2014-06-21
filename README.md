@@ -61,7 +61,7 @@ application/
   |  |  |- images/
   |  |  |- javascripts/
   |  |  |  |- <codeModule>/
-  |  |  |  |  |- codeModule.html # also support other templates like haml
+  |  |  |  |  |- codeModule.tpl.html # also support other templates like haml
   |  |  |  |  |- codeModule.js.coffee
   |  |  |  |- application.js
   |  |  |  |- main.js.coffee # main file
@@ -112,6 +112,10 @@ application/
   |- Rakefile
   |- README.rdoc
 ```
+
+## Template
+I define all the _templates_ with suffix _.tpl.*_ is to those into _$templateCache_ to be able to test
+directive with _templateUrl_. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.
 
 ## Task
 
