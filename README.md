@@ -41,6 +41,7 @@ $ rails new app-name --skip-bundle
 Finally, initiate the generator:
 
 ```bash
+$ cd app-name
 $ yo rails-angular-require
 ```
 
@@ -111,18 +112,18 @@ application/
 ```
 
 ## Template
-I define all the __templates__ with suffix __.tpl.*__ is to those into __$templateCache__ to be able to test
-directive with __templateUrl__. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.
+I define all the templates with suffix __.tpl.*__ to load those into __$templateCache__, which make them testable
+with directives that rely on partial template. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.
 
 ## Task
 
 ### Live reload
 
-To be able to use livereload utility, I use [guard](https://github.com/guard/guard-livereload) to automatically
-reload the browser. Use [rack-livereload](https://github.com/johnbintz/rack-livereload) or install [LiveReload Safari/Chrome extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-)
+For using livereload utility, firstly, install [guard](https://github.com/guard/guard-livereload). Then, use [rack-livereload](https://github.com/johnbintz/rack-livereload)
+or install [LiveReload Safari/Chrome extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-)
 
 ```bash
-$ bundle exec guard
+$ bundle exec guard # to run the guard server and enjoy coding
 ```
 
 ### Testing
