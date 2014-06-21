@@ -91,6 +91,8 @@ application/
   |- spec/
   |  |- javascripts/
   |  |  |- helpers/
+  |  |  |- e2espec/
+  |  |  |  |- codeSpec.{js, coffee} # suffix by _e2espec.{js, coffee}
   |  |  |- spec/
   |  |  |  |- codeSpec.{js, coffee} # suffix by _unitspec.{js, coffee}
   |  |  |- support/
@@ -123,13 +125,20 @@ $ bundle exec guard
 ```
 
 ### Testing
-After run:
+
+Unit testing for code module, run:
 
 ```bash
 $ rails server
 ```
 
-Access `localhost:3000/specs`
+Then access `localhost:3000/specs`
+
+E2E testing, run
+
+```bash
+$ protractor protractor.config.js
+```
 
 ### Subgenerators
 
