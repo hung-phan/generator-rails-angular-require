@@ -11,7 +11,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.on('end', function () {
       if (!this.options['skip-install']) {
-        magenta.log("Thank for using");
+        magenta("Thank for using");
       }
     });
   },
@@ -118,7 +118,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   processingGemfileTemplate: function() {
-    magenta.log('Processing Gemfile');
+    magenta('Processing Gemfile');
     this.template('Gemfile', 'tmp/yeoman/Gemfile');
   },
 
@@ -145,7 +145,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   executeBowerTask: function() {
-    magenta.log('Processing Bowerfile');
+    magenta('Processing Bowerfile');
     shell.exec("rails g bower_rails:initialize");
   },
 
@@ -170,18 +170,18 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   templateSupport: function() {
-    magenta.log('Adding template support: angular_template_assets.rb');
+    magenta('Adding template support: angular_template_assets.rb');
     this.template('config/angular_template_assets.rb', 'config/initializers/angular_template_assets.rb');
   },
 
   requirejs: function() {
     //requirejs config
-    magenta.log('Requirejs config/requirejs.yml');
+    magenta('Requirejs config/requirejs.yml');
     this.template('config/requirejs.yml', 'config/requirejs.yml');
   },
 
   jasmineInit: function() {
-    magenta.log('Integrate jasmine testing framework');
+    magenta('Integrate jasmine testing framework');
     shell.exec("rails generate jasmine_rails:install");
   },
 
@@ -210,27 +210,27 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
   e2eTesting: function() {
     //process e2e testing
-    magenta.log('Processing e2e testing template');
+    magenta('Processing e2e testing template');
     this.copy('protractor.config.js', 'protractor.config.js');
     this.copy('spec/javascripts/e2espec/home_e2espec.coffee', 'spec/javascripts/e2espec/home_e2espec.coffee');
   },
 
   guard: function() {
     //process livereload
-    magenta.log('Add livereload utility');
+    magenta('Add livereload utility');
     if (this.includeLiveReload) {
       shell.exec("guard init livereload");
     }
   },
 
   view: function () {
-    magenta.log('Processing view');
+    magenta('Processing view');
     this.copy('view/index.html', 'app/views/application/index.html');
     this.template('view/application.html.erb', 'app/views/layouts/application.html.erb');
   },
 
   appJs: function() {
-    magenta.log('Processing app js');
+    magenta('Processing app js');
     var path   = 'app/assets/javascripts/application.js',
         file   = this.readFileAsString(path);
 
@@ -246,7 +246,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   routes: function() {
-    magenta.log('Processing config/routes.rb');
+    magenta('Processing config/routes.rb');
     var path   = 'config/routes.rb',
         hook   = 'Rails.application.routes.draw do\n',
         file   = this.readFileAsString(path),
@@ -258,7 +258,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   stylesheets: function() {
-    magenta.log('Processing app stylesheets');
+    magenta('Processing app stylesheets');
     var extra  = '';
     if (this.includeButtonCss) {
       extra += " *= require Buttons/scss/buttons.scss\n";
