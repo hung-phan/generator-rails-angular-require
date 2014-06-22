@@ -81,7 +81,7 @@ $ protractor protractor.config.js
 
 ### Subgenerators
 
-This also supports for subgenerator for controller, filter, service, and directive as well. Make sure you link them in your
+This also supports for subgenerator for `controller`, `filter`, `service`, and `directive` as well. Make sure you link them in your
 __main.js__
 ```bash
 $ yo rails-angular-require:controller "name" #replace the name with your module name
