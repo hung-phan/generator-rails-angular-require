@@ -1,7 +1,7 @@
 require [
   "angular"
   "jquery"
-  "angular-resource"<% if (includeAngularAnimate) { %>
+  "restangular"<% if (includeAngularAnimate) { %>
   "angular-animate"<% } %>
   "angular-ui-router"<% if (includeBindonce) { %>
   "bindonce"<% } %><% if (includeUIBootstrap) { %>
@@ -19,7 +19,7 @@ require [
     $html = angular.element("html")
     angular.module("webApp", [
       "ui.router"
-      "ngResource"<% if (includeUIBootstrap) { %>
+      "restangular"<% if (includeUIBootstrap) { %>
       "ui.bootstrap"<% } %><% if (includeAngularAnimate) { %>
       "ngAnimate"<% } %><% if (includeBindonce) { %>
       "pasvaz.bindonce"<% } %>
