@@ -96,7 +96,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       name: 'jsFile',
       message: 'What js library would you like to include?',
       choices: [
-        { name: 'Lodash.js'                 , value: 'includeLodash'         , checked: false } ,
+        { name: 'Lodash.js'                 , value: 'includeLodash'         , checked: true } ,
         { name: 'Angular UI-Bootstrap'      , value: 'includeUIBootstrap'    , checked: false } ,
         { name: 'Angular animate'           , value: 'includeAngularAnimate' , checked: false } ,
         { name: 'Bindonce by Pasvaz'        , value: 'includeBindonce'       , checked: false } ,
