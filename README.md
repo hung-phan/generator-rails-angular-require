@@ -99,7 +99,7 @@ application/
   |  |  |- images/
   |  |  |- javascripts/
   |  |  |  |- <codeModule>/
-  |  |  |  |  |- codeModule.tpl.html # also support other templates like haml
+  |  |  |  |  |- codeModule.tpl.html # also support other templates like haml, and slim
   |  |  |  |  |- codeModule.js.coffee
   |  |  |  |- application.js
   |  |  |  |- main.js.coffee # main file
