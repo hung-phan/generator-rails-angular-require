@@ -153,6 +153,9 @@ application/
   |- README.rdoc
 ```
 
+## Contribution
+All contribution are welcomed.
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
