@@ -154,7 +154,7 @@ application/
 ```
 
 ## Contribution
-All contribution are welcomed.
+All contributions are welcomed.
 
 ## License
 
