@@ -74,6 +74,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       name: 'tool',
       message: 'What tool support would you like to include?',
       choices: [
+        { name: 'Grape Rest' , value: 'includeGrape'      , checked: true  } ,
         { name: 'Livereload' , value: 'includeLiveReload' , checked: false }
       ]
     }];
@@ -83,6 +84,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
       // template support
       this.includeLiveReload = includeTool('includeLiveReload');
+      this.includeGrape      = includeTool('includeGrape');
 
       cb();
     }.bind(this));
@@ -178,6 +180,26 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     //requirejs config
     console.log(magenta('Requirejs config/requirejs.yml'));
     this.template('config/requirejs.yml', 'config/requirejs.yml');
+  },
+
+  grape: function() {
+    if (this.includeGrape) {
+      console.log(magenta('Insert Grape API into config/routes.rb'));
+      var path   = 'config/routes.rb',
+      hook   = 'Rails.application.routes.draw do\n',
+      file   = this.readFileAsString(path),
+      insert = "  mount API::Base => '/api'\n";
+
+      if (file.indexOf(insert) === -1) {
+        this.write(path, file.replace(hook, hook + insert));
+      }
+    }
+  },
+
+  grapeInitFile: function() {
+    if (this.includeGrape) {
+      this.directory('api', 'app/controllers/api');
+    }
   },
 
   jasmineInit: function() {

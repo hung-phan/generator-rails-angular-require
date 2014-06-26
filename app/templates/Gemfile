@@ -21,4 +21,6 @@ end<% } %><% if (includeHaml) { %>
 # haml template
 gem 'haml'<% } %><% if (includeSlim) { %>
 # slim template
-gem 'slim'<% } %>
+gem 'slim'<% } %><% if (includeGrape) { %>
+# grape api
+gem 'grape'<% } %>
