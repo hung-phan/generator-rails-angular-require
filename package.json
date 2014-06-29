@@ -1,6 +1,6 @@
 {
   "name": "generator-rails-angular-require",
-  "version": "0.1.4-2",
+  "version": "0.1.5",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
