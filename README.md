@@ -2,6 +2,7 @@
 
 > [Yeoman](http://yeoman.io) generator
 
+[![NPM](https://nodei.co/npm/generator-rails-angular-require.png?downloads=true)](https://nodei.co/npm/generator-rails-angular-require/)
 
 ## Getting Started
 
