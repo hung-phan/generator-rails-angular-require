@@ -53,7 +53,7 @@ database than sqlite3.
 
 Name: mongoid (for mongodb)
 
-add `--skip-active-record` option to your `rails new app --skip-bundle --skip-active-record` command before selecting this option.
+add `--skip-active-record` option to your `rails new app --skip-active-record` command before selecting this option.
 
 ## Template
 
