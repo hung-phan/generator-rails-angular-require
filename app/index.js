@@ -74,8 +74,10 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       name: 'tool',
       message: 'What tool support would you like to include?',
       choices: [
-        { name: 'Grape Rest' , value: 'includeGrape'      , checked: true  } ,
-        { name: 'Livereload' , value: 'includeLiveReload' , checked: false }
+        { name: 'Grape Rest'            , value: 'includeGrape'      , checked: true  } ,
+        { name: 'therubyracer'          , value: 'includeRubyRacer'  , checked: false } ,
+        { name: 'mongoid (for mongodb)' , value: 'includeMongodb'    , checked: false } ,
+        { name: 'Livereload'            , value: 'includeLiveReload' , checked: false }
       ]
     }];
 
@@ -83,6 +85,8 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       function includeTool(tool) { return props.tool.indexOf(tool) !== -1; }
 
       // template support
+      this.includeRubyRacer  = includeTool('includeRubyRacer');
+      this.includeMongodb    = includeTool('includeMongodb');
       this.includeLiveReload = includeTool('includeLiveReload');
       this.includeGrape      = includeTool('includeGrape');
 
@@ -180,6 +184,12 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     //requirejs config
     console.log(magenta('Requirejs config/requirejs.yml'));
     this.template('config/requirejs.yml', 'config/requirejs.yml');
+  },
+
+  mongodb: function() {
+    if (this.includeMongodb) {
+      shell.exec("rails g mongoid:config");
+    }
   },
 
   grape: function() {

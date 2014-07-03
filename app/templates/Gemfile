@@ -7,7 +7,9 @@ gem 'requirejs-rails'<% if (includeButtonCss) { %>
 # button sass
 gem 'compass-rails'<% } %><% if (includeFontAwesome) { %>
 # font awesome
-gem 'font-awesome-rails'<% } %>
+gem 'font-awesome-rails'<% } %><% if (includeMongodb) { %>
+# mongoid
+gem 'mongoid'<% } %>
 # jasmine
 group :development, :test do
   gem 'jasmine'
@@ -23,4 +25,6 @@ gem 'haml'<% } %><% if (includeSlim) { %>
 # slim template
 gem 'slim'<% } %><% if (includeGrape) { %>
 # grape api
-gem 'grape'<% } %>
+gem 'grape'<% } %><% if (includeRubyRacer) { %>
+# embed the V8 Javascript Interpreter into Ruby
+gem 'therubyracer', platforms: :ruby<% } %>

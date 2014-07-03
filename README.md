@@ -49,7 +49,14 @@ $ yo rails-angular-require
 Answer 'Yes' to all 'Overwrite' actions. Then config the 'config/database.yml' if you use different
 database than sqlite3.
 
+## Options
+
+Name: mongoid (for mongodb)
+
+add `--skip-active-record` option to your `rails new app --skip-bundle --skip-active-record` command before selecting this option.
+
 ## Template
+
 I define all the templates with suffix __.tpl.*__ to load those into __$templateCache__, which make them testable
 with directives that rely on partial template. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.
 
