@@ -290,6 +290,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   defaultStylesheet: function() {
+    console.log(magenta('Copy default.css.scss file'));
     this.template('app/default.css.scss', 'app/assets/stylesheets/default.css.scss');
   },
 

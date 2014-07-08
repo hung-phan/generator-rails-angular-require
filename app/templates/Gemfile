@@ -18,7 +18,9 @@ gem 'mongoid'<% } %>
 group :development, :test do
   gem 'jasmine'
   gem 'jasmine-rails'
-end<% if (includeLiveReload) { %>
+end
+# rspec
+gem 'rspec'<% if (includeLiveReload) { %>
 # livereload using guard server
 group :development do
   gem 'guard'
