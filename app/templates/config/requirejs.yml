@@ -17,7 +17,7 @@ paths:
   # require lodash
   'lodash': 'lodash/dist/lodash'<% } %>
   # require bootstrap.js to make bootstrap components work
-  'bootstrap': 'sass-bootstrap/dist/js/bootstrap'
+  'bootstrap': 'bootstrap-sprockets'
   # jasmine boostrap
   'jasmine': 'jasmine'
   'jasmine-html': 'jasmine-html'
