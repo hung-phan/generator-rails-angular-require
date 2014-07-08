@@ -49,6 +49,14 @@ $ yo rails-angular-require
 Answer 'Yes' to all 'Overwrite' actions. Then config the 'config/database.yml' if you use different
 database than sqlite3.
 
+## Assets compile
+
+Compile your assets before deploying to production server
+
+```bash
+$ rake assets:precompile RAILS_ENV=production
+```
+
 ## Options
 
 Name: mongoid (for mongodb)

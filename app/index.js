@@ -213,7 +213,7 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   jasmineInit: function() {
-    console.log(magenta('Integrate jasmine testing framework'));
+    console.log(magenta('Integrate jasmine for frontend testing'));
     shell.exec("rails generate jasmine_rails:install");
   },
 
@@ -249,8 +249,8 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
   guard: function() {
     //process livereload
-    console.log(magenta('Add livereload utility'));
     if (this.includeLiveReload) {
+      console.log(magenta('Add livereload utility'));
       shell.exec("guard init livereload");
     }
   },
