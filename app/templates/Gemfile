@@ -1,3 +1,5 @@
+# twitter bootstrap
+gem 'bootstrap-sass'
 # bower dependencies manager for rails
 gem 'bower-rails'<% if (includeModernizr) { %>
 # modernizr
