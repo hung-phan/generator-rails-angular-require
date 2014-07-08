@@ -1,6 +1,5 @@
-# auto generate bower assets
-
-asset 'sass-bootstrap'<% if (includeLodash) { %>
+# auto generate bower assets<% if (includeLodash) { %>
+#
 asset 'lodash'<% } %>
 asset 'jquery', '2.1.1'
 asset 'angular'
