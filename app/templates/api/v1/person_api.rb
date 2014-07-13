@@ -28,10 +28,10 @@ module API
           Person.find(params[:d])
         end
 
-        # POST /api/v1/people/create
+        # POST /api/v1/people/
         desc "Create person"
-        post "/create" do
-          MyObject.create(params[:data])
+        post "/" do
+          Person.create(params[:data])
         end
       end
     end
