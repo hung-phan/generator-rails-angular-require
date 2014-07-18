@@ -96,3 +96,40 @@ $width-large:  1200px;
     ::-webkit-selection{ background: $background; color: $color; text-shadow: none; }
     ::-moz-selection{ background: $background; color: $color; text-shadow: none; }
 }
+
+@mixin bootstrap-column($name, $width) {
+  .col-xs-#{$name}, .col-sm-#{$name}, .col-md-#{$name}, .col-lg-#{$name} {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .col-xs-#{$name} {
+    width: $width;
+    float: left;
+  }
+
+  /*Define extended grid system for bootstrap*/
+  @media (min-width: 768px) {
+    .col-sm-#{$name} {
+      width: $width;
+      float: left;
+    }
+  }
+  @media (min-width: 992px) {
+    .col-md-#{$name} {
+      width: $width;
+      float: left;
+    }
+  }
+  @media (min-width: 1200px) {
+    .col-lg-#{$name} {
+      width: $width;
+      float: left;
+    }
+  }
+}
+
+// use @include bootstrap-column(15, 20%);
+
