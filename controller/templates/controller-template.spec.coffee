@@ -11,8 +11,8 @@ define [
     beforeEach ->
       module("<%= name %>Module")
       inject((_$injector_, _$rootScope_) ->
-        $scope = _$rootScope_.$new();
-        $location = _$injector_.get("$location");
+        $scope = _$rootScope_.$new()
+        $location = _$injector_.get("$location")
         dummy<%= uppercaseName %>Controller = _$injector_.get("$controller")("Dummy<%= uppercaseName %>Controller",
           '$scope': $scope
           '$location': $location
