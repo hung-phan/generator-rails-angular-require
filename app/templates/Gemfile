@@ -19,6 +19,11 @@ group :development, :test do
   gem 'jasmine'
   gem 'jasmine-rails'
 end
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'meta_request'
+end
 # rspec
 gem 'rspec'<% if (includeLiveReload) { %>
 # livereload using guard server
