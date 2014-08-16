@@ -36,6 +36,7 @@ gem 'haml'<% } %><% if (includeSlim) { %>
 # slim template
 gem 'slim'<% } %><% if (includeGrape) { %>
 # grape api
+gem 'grape-entity'
 gem 'grape'<% } %><% if (includeRubyRacer) { %>
 # embed the V8 Javascript Interpreter into Ruby
 gem 'therubyracer', platforms: :ruby<% } %>
