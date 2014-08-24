@@ -21,7 +21,7 @@ $width-large:  1200px;
 // @include responsive(wide-screens) { width: 80%; }
 
 @mixin custom-retinize($file, $type, $width, $height) {
-  background-image: url('../images/' + $file + '.' + $type);
+  background-image: image-url('' + $file + '.' + $type);
 
   @media (-webkit-min-device-pixel-ratio: 1.5),
          (min--moz-device-pixel-ratio: 1.5),
