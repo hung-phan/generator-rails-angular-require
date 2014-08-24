@@ -29,7 +29,7 @@ $width-large:  1200px;
          (min-device-pixel-ratio: 1.5),
          (min-resolution: 1.5dppx) {
     & {
-      background-image: url('../images/' + $file + '.' + $type);
+      background-image: image-url('' + $file + '.' + $type);
       -webkit-background-size: $width $height;
          -moz-background-size: $width $height;
               background-size: $width $height;
@@ -40,7 +40,7 @@ $width-large:  1200px;
 // how to use @include retinize('icon-dribbble', 'png', 24px, 24px);
 
 @mixin custom-background-body($file, $type) {
-    background: url('../images/' + $file + '.' + $type) no-repeat center center fixed;
+    background: image-url('' + $file + '.' + $type) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
