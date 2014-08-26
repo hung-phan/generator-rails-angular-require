@@ -1,7 +1,6 @@
 # auto generate bower assets<% if (includeLodash) { %>
 #
 asset 'lodash'<% } %>
-asset 'jquery', '2.1.1'
 asset 'angular'
 asset 'angular-mocks'
 asset 'restangular'<% if (includeBindonce) { %>
