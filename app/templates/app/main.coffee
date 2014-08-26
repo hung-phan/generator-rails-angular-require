@@ -1,6 +1,7 @@
 require [
   "angular"
   "jquery"
+  "jquery_ujs"
   "restangular"<% if (includeAngularAnimate) { %>
   "angular-animate"<% } %>
   "angular-ui-router"<% if (includeBindonce) { %>

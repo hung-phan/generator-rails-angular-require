@@ -13,7 +13,8 @@ paths:
   # require ui-bootstrap with the embeded template [http://angular-ui.github.io/bootstrap/]
   'ui-bootstrap-tpls': 'angular-bootstrap/ui-bootstrap-tpls'<% }%>
   # require jquery
-  'jquery': 'jquery/dist/jquery'<% if (includeLodash) { %>
+  'jquery': 'jquery'
+  'jquery_ujs': 'jquery_ujs'<% if (includeLodash) { %>
   # require lodash
   'lodash': 'lodash/dist/lodash'<% } %>
   # require bootstrap.js to make bootstrap components work
@@ -25,6 +26,7 @@ paths:
   'json2': 'json2'
   'boot': 'boot'
 shim:
+  'jquery_ujs': ['jquery']
   'angular':
     exports: 'angular'
     deps: ['jquery']

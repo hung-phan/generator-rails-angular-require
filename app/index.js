@@ -137,7 +137,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
     //modify file before insert
     file = file.replace("# Use jquery as the JavaScript library\n", '')
-               .replace("gem 'jquery-rails'\n", '')
                .replace("# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks\n", '')
                .replace("gem 'turbolinks'\n", '');
 
