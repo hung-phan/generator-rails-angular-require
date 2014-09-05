@@ -2,20 +2,16 @@
 @import "bootstrap";<% if (includeFontAwesome) { %>
 @import "font-awesome";<% } %>
 
-$width-small:  400px;
-$width-medium: 760px;
-$width-large:  1200px;
+$xs-small-screen:  320px;
+$small-screen:     480px;
+$medium-screen:    768px;
+$large-screen:     992px;
+$xs-large-screen:  1200px;
 
-@mixin custom-responsive($width) {
-  @if $width == wide-screens {
-    @media only screen and (max-width: $width-large) { @content; }
-  }
-  @else if $width == medium-screens {
-    @media only screen and (max-width: $width-medium) { @content; }
-  }
-  @else if $width == small-screens {
-    @media only screen and (max-width: $width-small) { @content; }
-  }
+// Custom mixins
+
+@mixin utility-responsive($width) {
+  @media only screen and (min-width: $width) { @content; }
 }
 
 // @include responsive(wide-screens) { width: 80%; }
