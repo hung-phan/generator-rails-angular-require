@@ -17,19 +17,19 @@ gem 'mongoid'<% } %>
 # jasmine
 group :development, :test do
   gem 'faker' # https://github.com/stympy/faker
-  gem 'factory_girl_rails'
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'mailcatcher'
+  gem 'factory_girl_rails' # https://github.com/thoughtbot/factory_girl_rails
   gem 'database_cleaner'
-  gem 'shoulda-matchers'
-  gem 'did_you_mean'
+  gem 'rspec'
+  gem 'rspec-rails' # https://github.com/rspec/rspec-rails
   gem 'guard-rspec'
-  gem 'spring-commands-rspec'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'shoulda-matchers' # https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-callback-matchers', '~> 1.0'
+  gem 'spring-commands-rspec'
   gem 'jasmine'
   gem 'jasmine-rails'
+  gem 'mailcatcher'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'did_you_mean'
 end
 group :development do
   gem "better_errors"
