@@ -16,6 +16,17 @@ gem 'font-awesome-rails'<% } %><% if (includeMongodb) { %>
 gem 'mongoid'<% } %>
 # jasmine
 group :development, :test do
+  gem 'rspec'
+  gem "rspec-rails"
+  gem 'mailcatcher'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'did_you_mean'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'shoulda-callback-matchers', '~> 1.0'
   gem 'jasmine'
   gem 'jasmine-rails'
 end
@@ -25,7 +36,7 @@ group :development do
   gem 'meta_request'
 end
 # rspec
-gem 'rspec'<% if (includeLiveReload) { %>
+<% if (includeLiveReload) { %>
 # livereload using guard server
 group :development do
   gem 'guard'
