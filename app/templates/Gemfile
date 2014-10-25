@@ -16,11 +16,12 @@ gem 'font-awesome-rails'<% } %><% if (includeMongodb) { %>
 gem 'mongoid'<% } %>
 # jasmine
 group :development, :test do
+  gem 'faker' # https://github.com/stympy/faker
+  gem 'factory_girl_rails'
   gem 'rspec'
-  gem "rspec-rails"
+  gem 'rspec-rails'
   gem 'mailcatcher'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'did_you_mean'
   gem 'guard-rspec'
