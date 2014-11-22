@@ -105,7 +105,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
         { name: 'Lodash.js'                 , value: 'includeLodash'         , checked: true } ,
         { name: 'Angular UI-Bootstrap'      , value: 'includeUIBootstrap'    , checked: false } ,
         { name: 'Angular animate'           , value: 'includeAngularAnimate' , checked: false } ,
-        { name: 'Bindonce by Pasvaz'        , value: 'includeBindonce'       , checked: false } ,
         { name: 'Modernizr'                 , value: 'includeModernizr'      , checked: true }
       ]
     }];
@@ -117,7 +116,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
       this.includeLodash         = includeJS('includeLodash');
       this.includeUIBootstrap    = includeJS('includeUIBootstrap');
       this.includeAngularAnimate = includeJS('includeAngularAnimate');
-      this.includeBindonce       = includeJS('includeBindonce');
       this.includeModernizr      = includeJS('includeModernizr');
       cb();
     }.bind(this));

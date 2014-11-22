@@ -3,9 +3,8 @@
 asset 'lodash'<% } %>
 asset 'angular'
 asset 'angular-mocks'
-asset 'restangular'<% if (includeBindonce) { %>
-asset 'angular-bindonce'<% } %>
-asset 'angular-ui-router', '0.2.10'<% if (includeUIBootstrap) { %>
+asset 'restangular'
+asset 'angular-ui-router', '0.2.11'<% if (includeUIBootstrap) { %>
 asset 'angular-bootstrap'<% } %><% if (includeAngularAnimate) { %>
 asset 'angular-animate'<% } %><% if (includeButtonCss) { %>
 asset 'Buttons'<% } %><% if (includeAnimateCss) { %>
