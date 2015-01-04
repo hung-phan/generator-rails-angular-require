@@ -29,7 +29,6 @@ group :development, :test do
   gem 'jasmine'
   gem 'jasmine-rails'
   gem 'mailcatcher'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
   gem 'did_you_mean'<% if (includeLiveReload) { %>
   gem 'guard-livereload', require: false<% } %>
 end
