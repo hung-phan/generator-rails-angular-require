@@ -1,0 +1,113 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.1.14
+3 info using node@v0.10.34
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec { raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/colorvisa/Desktop/workarea/working on/generator-rails-angular-require',
+8 silly cache add   type: 'directory' }
+9 verbose tar pack [ '/Users/colorvisa/.npm/generator-rails-angular-require/0.2.0/package.tgz',
+9 verbose tar pack   '/Users/colorvisa/Desktop/workarea/working on/generator-rails-angular-require' ]
+10 verbose tarball /Users/colorvisa/.npm/generator-rails-angular-require/0.2.0/package.tgz
+11 verbose folder /Users/colorvisa/Desktop/workarea/working on/generator-rails-angular-require
+12 info prepublish generator-rails-angular-require@0.2.0
+13 verbose addLocalTarball adding from inside cache /Users/colorvisa/.npm/generator-rails-angular-require/0.2.0/package.tgz
+14 silly cache afterAdd generator-rails-angular-require@0.2.0
+15 verbose afterAdd /Users/colorvisa/.npm/generator-rails-angular-require/0.2.0/package/package.json not in flight; writing
+16 verbose afterAdd /Users/colorvisa/.npm/generator-rails-angular-require/0.2.0/package/package.json written
+17 silly publish { name: 'generator-rails-angular-require',
+17 silly publish   version: '0.2.0',
+17 silly publish   description: 'Yeoman generator',
+17 silly publish   license: 'MIT',
+17 silly publish   main: 'app/index.js',
+17 silly publish   repository:
+17 silly publish    { type: 'git',
+17 silly publish      url: 'https://github.com/hung-phan/generator-rails-angular-require' },
+17 silly publish   author:
+17 silly publish    { name: 'Phan Quang Hung',
+17 silly publish      email: 'colorvisavn@gmail.com',
+17 silly publish      url: 'https://github.com/hung-phan' },
+17 silly publish   engines: { node: '>=0.10.0' },
+17 silly publish   scripts: { test: 'mocha' },
+17 silly publish   files: [ 'app' ],
+17 silly publish   keywords: [ 'yeoman-generator' ],
+17 silly publish   dependencies:
+17 silly publish    { 'yeoman-generator': '~0.16.0',
+17 silly publish      chalk: '~0.4.0',
+17 silly publish      yosay: '^0.1.0',
+17 silly publish      shelljs: '^0.3.0' },
+17 silly publish   devDependencies: { mocha: '*' },
+17 silly publish   peerDependencies: { yo: '>=1.0.0' },
+17 silly publish   readme: '# generator-rails-angular-require\n\n> [Yeoman](http://yeoman.io) generator\n\n[![NPM](https://nodei.co/npm/generator-rails-angular-require.png?downloads=true)](https://nodei.co/npm/generator-rails-angular-require/)\n\n## Getting Started\n\nTo run this version of yeoman generator. First, make sure that you have already installed yeoman\n\n```bash\n$ npm install -g yo\n```\n\nTo install generator-rails-angular-require from npm, run:\n\n```bash\n$ npm install -g generator-rails-angular-require\n```\n\nTo be able to support template preprocessor, make sure you install the right `gem` first:\n\n```bash\n$ gem install slim # for slim\n$ gem install haml # for haml\n```\nOther dependencies\n\n1. SASS (gem install sass)\n\n2. Compass (gem install compass)\n\n\n## Usage for Rails 4.*\n\nFirstly, create Ruby on Rails project with normal rails command, but skip it bundle:\n\n```bash\n$ rails new app-name --skip-bundle\n```\n\nFinally, initiate the generator:\n\n```bash\n$ cd app-name\n$ yo rails-angular-require\n```\n\nAnswer \'Yes\' to all \'Overwrite\' actions. Then config the \'config/database.yml\' if you use different\ndatabase than sqlite3.\n\n## Assets compile\n\nCompile your assets before deploying to production server\n\n```bash\n$ rake assets:precompile RAILS_ENV=production\n```\n\n## Options\n\nName: mongoid (for mongodb)\n\nadd `--skip-active-record` option to your `rails new app --skip-active-record` command before selecting this option.\n\n## Template\n\nI define all the templates with suffix __.tpl.*__ to load those into __$templateCache__, which make them testable\nwith directives that rely on partial template. However, this is configurable by setting in `lib/jasmine_rails/spec_helper.rb`.\n\n## Task\n\n### Live reload\n\nFor using livereload utility, firstly, install [guard](https://github.com/guard/guard-livereload). Then, use [rack-livereload](https://github.com/johnbintz/rack-livereload)\nor install [LiveReload Safari/Chrome extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-)\n\n```bash\n$ bundle exec guard # to run the guard server and enjoy coding\n```\n\n### Testing\n\nRun:\n\n```bash\n$ rails server\n```\n\nFor unit testing, access `localhost:3000/specs`\n\nFor e2e testing, run:\n\n```bash\n$ protractor protractor.config.js\n```\n\n### Subgenerators\n\nThis also supports for subgenerator for `controller`, `filter`, `service`, and `directive` as well. Make sure you link them in your\n__main.js__\n```bash\n$ yo rails-angular-require:controller "name" #replace the name with your module name\n$ yo rails-angular-require:service "name" #replace the name with your module name\n$ yo rails-angular-require:directive "name" #replace the name with your module name\n$ yo rails-angular-require:filter "name" #replace the name with your module name\n\n```\n## Structure\n\n```\napplication/\n  |- app/\n  |  |- assets/\n  |  |  |- images/\n  |  |  |- javascripts/\n  |  |  |  |- <codeModule>/\n  |  |  |  |  |- codeModule.tpl.html # also support other templates like haml, and slim\n  |  |  |  |  |- codeModule.js.coffee\n  |  |  |  |- application.js\n  |  |  |  |- main.js.coffee # main file\n  |  |  |- stylesheets/\n  |  |  |  |- application.css\n  |  |- controllers/\n  |  |- helpers/\n  |  |- mailers/\n  |  |- models/\n  |  |- views/\n  |  |  |- application/\n  |  |  |  |- index.html # default template navigation by angular-ui-router\n  |  |  |- layouts/\n  |  |  |  |- jasmine_rails/\n  |  |  |  |  |- spec_runner.html.erb # jasmine spec runner template\n  |  |  |  |- application.html.erb\n  |- bin/\n  |- config/\n  |  |- initializers/\n  |  |  |- angular_template_assets.rb # Add template support\n  |  |  |- bower_rails.rb # bower rails config\n  |  |- requirejs.yml # requirejs config file\n  |- db/\n  |- lib/\n  |  |- jasmine_rails/\n  |  |  |- spec_helper.rb # jasmine rails helper\n  |- log/\n  |- public/\n  |- spec/\n  |  |- javascripts/\n  |  |  |- helpers/\n  |  |  |- e2espec/\n  |  |  |  |- codeSpec.{js, coffee} # suffix by _e2espec.{js, coffee}\n  |  |  |- spec/\n  |  |  |  |- codeSpec.{js, coffee} # suffix by _unitspec.{js, coffee}\n  |  |  |- support/\n  |  |  |  |- jasmine.yml # jasmine config\n  |- test/\n  |- tmp/\n  |- vendor/\n  |  |- assets/\n  |  |  |- bower_components/\n  |  |  |  |- third libararies/\n  |- |  |- bower.json\n  |- Bowerfile # define all bower_components here\n  |- config.ru\n  |- Gemfile\n  |- Gemfile.lock\n  |- Guardfile # Guard file for livereload\n  |- Rakefile\n  |- README.rdoc\n```\n\n## Contribution\nAll contributions are welcomed.\n\n## License\n\n[MIT License](http://en.wikipedia.org/wiki/MIT_License)\n',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: '482138ced4d2e0efdaca3e9d26033d0485ddd4e1',
+17 silly publish   bugs: { url: 'https://github.com/hung-phan/generator-rails-angular-require/issues' },
+17 silly publish   homepage: 'https://github.com/hung-phan/generator-rails-angular-require',
+17 silly publish   _id: 'generator-rails-angular-require@0.2.0',
+17 silly publish   _shasum: '56ec7eded8ae7f8e9127c7b1cffae4c12b5ec965',
+17 silly publish   _from: '.' }
+18 silly mapToRegistry name generator-rails-angular-require
+19 silly mapToRegistry using default registry
+20 silly mapToRegistry registry https://registry.npmjs.org/
+21 silly mapToRegistry uri https://registry.npmjs.org/generator-rails-angular-require
+22 verbose publish registryBase https://registry.npmjs.org/
+23 silly publish uploading /Users/colorvisa/.npm/generator-rails-angular-require/0.2.0/package.tgz
+24 verbose request uri https://registry.npmjs.org/generator-rails-angular-require
+25 verbose request sending authorization for write operation
+26 info attempt registry request try #1 at 16:46:52
+27 verbose request id 2f5c2f752ee89713
+28 http request PUT https://registry.npmjs.org/generator-rails-angular-require
+29 http 500 https://registry.npmjs.org/generator-rails-angular-require
+30 info retry will retry, error on last attempt: Error: pound_internal_server_error : generator-rails-angular-require
+31 info attempt registry request try #2 at 16:47:03
+32 http request PUT https://registry.npmjs.org/generator-rails-angular-require
+33 http 500 https://registry.npmjs.org/generator-rails-angular-require
+34 info retry will retry, error on last attempt: Error: pound_internal_server_error : generator-rails-angular-require
+35 info attempt registry request try #3 at 16:48:05
+36 http request PUT https://registry.npmjs.org/generator-rails-angular-require
+37 http 500 https://registry.npmjs.org/generator-rails-angular-require
+38 verbose headers { date: 'Thu, 29 Jan 2015 09:48:05 GMT',
+38 verbose headers   server: 'Apache',
+38 verbose headers   'content-type': 'text/html',
+38 verbose headers   expires: 'now',
+38 verbose headers   pragma: 'no-cache',
+38 verbose headers   'cache-control': 'max-age=0',
+38 verbose headers   'content-length': '111',
+38 verbose headers   'accept-ranges': 'bytes',
+38 verbose headers   via: '1.1 varnish',
+38 verbose headers   'x-served-by': 'cache-hk93-HKG',
+38 verbose headers   'x-cache': 'MISS',
+38 verbose headers   'x-cache-hits': '0',
+38 verbose headers   'x-timer': 'S1422524885.304753,VS0,VE671',
+38 verbose headers   connection: 'close' }
+39 verbose request invalidating /Users/colorvisa/.npm/registry.npmjs.org/generator-rails-angular-require on PUT
+40 error publish Failed PUT 500
+41 verbose stack Error: pound_internal_server_error : generator-rails-angular-require
+41 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:244:14)
+41 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+41 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:373:22)
+41 verbose stack     at Request.emit (events.js:98:17)
+41 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1318:14)
+41 verbose stack     at Request.emit (events.js:117:20)
+41 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1266:12)
+41 verbose stack     at IncomingMessage.emit (events.js:117:20)
+41 verbose stack     at _stream_readable.js:944:16
+41 verbose stack     at process._tickCallback (node.js:442:13)
+42 verbose statusCode 500
+43 verbose pkgid generator-rails-angular-require
+44 verbose cwd /Users/colorvisa/Desktop/workarea/working on/generator-rails-angular-require
+45 error Darwin 14.0.0
+46 error argv "node" "/usr/local/bin/npm" "publish"
+47 error node v0.10.34
+48 error npm  v2.1.14
+49 error code E500
+50 error pound_internal_server_error : generator-rails-angular-require
+51 error If you need help, you may report this error at:
+51 error     <http://github.com/npm/npm/issues>
+52 verbose exit [ 1, true ]
