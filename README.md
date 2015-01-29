@@ -49,6 +49,10 @@ $ yo rails-angular-require
 Answer 'Yes' to all 'Overwrite' actions. Then config the 'config/database.yml' if you use different
 database than sqlite3.
 
+### Update development config
+Update `config.assets.digest = false` in `config/environments/development.rb` to enable compilation on the fly so
+that any asset file changes are detected by the Rails Server
+
 ## Assets compile
 
 Compile your assets before deploying to production server
