@@ -205,7 +205,19 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
 
   grapeInitFile: function() {
     if (this.includeGrape) {
-      this.directory('api', 'app/controllers/api');
+      this.directory('api', 'app/api');
+    }
+  },
+
+  autoLoadPath: function() {
+    //include config into config/application.rb
+    var path   = 'config/application.rb',
+        hook   = 'class Application < Rails::Application\n',
+        file   = this.readFileAsString(path),
+        insert = '    config.autoload_paths += %W(#{config.root}/lib #{Rails.root}/app)\n';
+
+    if (file.indexOf(insert) === -1) {
+      this.write(path, file.replace(hook, hook + insert));
     }
   },
 
@@ -215,8 +227,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
   },
 
   jasmine: function() {
-    //process jasmine
-
     //init template and rooting at localhost:3000/specs
     this.mkdir('spec/javascripts/helpers');
     this.mkdir('spec/javascripts/spec');
@@ -225,16 +235,6 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     this.copy('spec/javascripts/spec/home_unitspec.coffee', 'spec/javascripts/spec/home_unitspec.coffee');
     this.copy('jasmine_rails/spec_helper.rb', 'lib/jasmine_rails/spec_helper.rb');
     this.copy('jasmine_rails/spec_runner.html.erb', 'app/views/layouts/jasmine_rails/spec_runner.html.erb');
-
-    //include config into config/application.rb
-    var path   = 'config/application.rb',
-        hook   = 'class Application < Rails::Application\n',
-        file   = this.readFileAsString(path),
-        insert = '    config.autoload_paths += %W(#{config.root}/lib)\n';
-
-    if (file.indexOf(insert) === -1) {
-      this.write(path, file.replace(hook, hook + insert));
-    }
   },
 
   rspecRails: function() {

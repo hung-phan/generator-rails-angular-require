@@ -14,7 +14,7 @@ paths:
   'jquery': 'jquery'
   'jquery_ujs': 'jquery_ujs'<% if (includeLodash) { %>
   # require lodash
-  'lodash': 'lodash/dist/lodash'<% } %>
+  'lodash': 'lodash/lodash'<% } %>
   # require bootstrap.js to make bootstrap components work
   'bootstrap': 'bootstrap-sprockets'
   # jasmine boostrap
