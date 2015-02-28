@@ -16,6 +16,7 @@ gem 'font-awesome-rails'<% } %><% if (includeMongodb) { %>
 gem 'mongoid'<% } %>
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'faker' # https://github.com/stympy/faker
   gem 'factory_girl_rails' # https://github.com/thoughtbot/factory_girl_rails
   gem 'database_cleaner'
