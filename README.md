@@ -115,6 +115,11 @@ $ yo rails-angular-require:filter "name" #replace the name with your module name
 ```
 application/
   |- app/
+  |  |- apis/
+  |  |  |- v1/
+  |  |  |  |- base.rb
+  |  |  |  |- person_api.rb
+  |  |  |- base.rb
   |  |- assets/
   |  |  |- images/
   |  |  |- javascripts/
