@@ -241,6 +241,10 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     shell.exec("rails generate rspec:install");
   },
 
+  guardRspec: function() {
+    shell.exec("guard init rspec");
+  },
+
   e2eTesting: function() {
     //process e2e testing
     console.log(magenta('Processing e2e testing template'));
