@@ -294,6 +294,26 @@ var RailsAngularRequireGenerator = yeoman.generators.Base.extend({
     }
   },
 
+  rspecHelper: function() {
+    console.log(magenta('Update spec/rails_helper.rb for DatabaseCleaner and Grape api'));
+    var path   = 'spec/rails_helper.rb',
+        hook   = 'RSpec.configure do |config|\n',
+        file   = this.readFileAsString(path),
+        insert = '  config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: /spec\\/apis/\n' +
+                 '  config.before(:suite) do\n' +
+                 '    DatabaseCleaner.strategy = :transaction\n' +
+                 '    DatabaseCleaner.clean_with(:truncation)\n' +
+                 '  end\n';
+
+    if (file.indexOf(insert) === -1) {
+      this.write(path, file.replace(hook, hook + insert));
+    }
+  },
+
+  copySpecs: function() {
+    this.copy('spec/apis/person_spec.rb', 'spec/apis/person_spec.rb');
+  },
+
   defaultStylesheet: function() {
     console.log(magenta('Copy default.css.scss file'));
     this.template('app/default.css.scss', 'app/assets/stylesheets/default.css.scss');
